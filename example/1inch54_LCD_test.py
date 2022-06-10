@@ -29,7 +29,7 @@ try:
     #disp.Init()
     disp2.Init()
     # Clear display.
-    disp.clear()
+    #disp.clear()
     disp2.clear()
 
     # Create blank image for drawing.
