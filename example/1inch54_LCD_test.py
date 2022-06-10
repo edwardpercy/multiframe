@@ -20,12 +20,16 @@ logging.basicConfig(level=logging.DEBUG)
 try:
     # display with hardware SPI:
     ''' Warning!!!Don't  creation of multiple displayer objects!!! '''
-    #disp = LCD_1inch54.LCD_1inch54(spi=SPI.SpiDev(bus, device),spi_freq=10000000,rst=RST,dc=DC,bl=BL)
-    disp = LCD_1inch54.LCD_1inch54()
+    disp = LCD_1inch54.LCD_1inch54(spi=SPI.SpiDev(bus, device),spi_freq=10000000,rst=RST,dc=DC,bl=BL)
+    disp2 = LCD_1inch54.LCD_1inch54(spi=SPI.SpiDev(bus, 1),spi_freq=10000000,rst=20,dc=21,bl=16)
+    
+    #disp = LCD_1inch54.LCD_1inch54()
     # Initialize library.
     disp.Init()
+    disp2.Init()
     # Clear display.
     disp.clear()
+    disp2.clear()
 
     # Create blank image for drawing.
     image1 = Image.new("RGB", (disp.width, disp.height), "WHITE")
