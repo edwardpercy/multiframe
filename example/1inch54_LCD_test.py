@@ -21,19 +21,19 @@ try:
     # display with hardware SPI:
     ''' Warning!!!Don't  creation of multiple displayer objects!!! '''
     disp2 = LCD_1inch54.LCD_1inch54(spi=SPI.SpiDev(bus, 1),spi_freq=10000000,rst=20,dc=21,bl=16)
-    disp = LCD_1inch54.LCD_1inch54(spi=SPI.SpiDev(bus, device),spi_freq=10000000,rst=RST,dc=DC,bl=BL)
+    #disp = LCD_1inch54.LCD_1inch54(spi=SPI.SpiDev(bus, device),spi_freq=10000000,rst=RST,dc=DC,bl=BL)
     
     
     #disp = LCD_1inch54.LCD_1inch54()
     # Initialize library.
-    disp.Init()
+    #disp.Init()
     disp2.Init()
     # Clear display.
     disp.clear()
     disp2.clear()
 
     # Create blank image for drawing.
-    image1 = Image.new("RGB", (disp.width, disp.height), "WHITE")
+    image1 = Image.new("RGB", (disp2.width, disp2.height), "WHITE")
     draw = ImageDraw.Draw(image1)
 
     # logging.info("draw point")
@@ -76,16 +76,16 @@ try:
     # logging.info("show image")
     image = Image.open('../pic/1.jpg')	
     im_r=image.rotate(270)
-    disp.ShowImage(im_r)
+    #disp.ShowImage(im_r)
     disp2.ShowImage(im_r)
     time.sleep(3)
-    disp.module_exit()
+    #disp.module_exit()
     disp2.module_exit()
     logging.info("quit:")
 except IOError as e:
     logging.info(e)    
 except KeyboardInterrupt:
-    disp.module_exit()
+    #disp.module_exit()
     disp2.module_exit()
     logging.info("quit:")
     exit()
