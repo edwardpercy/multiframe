@@ -76,12 +76,15 @@ try:
     image = Image.open('../pic/1.jpg')	
     im_r=image.rotate(270)
     disp.ShowImage(im_r)
+    disp2.ShowImage(im_r)
     time.sleep(3)
     disp.module_exit()
+    disp2.module_exit()
     logging.info("quit:")
 except IOError as e:
     logging.info(e)    
 except KeyboardInterrupt:
     disp.module_exit()
+    disp2.module_exit()
     logging.info("quit:")
     exit()
